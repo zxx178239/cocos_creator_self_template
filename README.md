@@ -1,0 +1,2 @@
+# cocos_creator_self_template
+一个自己写的基于cocos creator的模板，不断完善中
