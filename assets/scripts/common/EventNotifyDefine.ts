@@ -1,0 +1,12 @@
+
+export enum NOTIFY_EVENTS {
+	// 测试事件 begin
+
+	TEST_EVENT_CHANGE_LABEL,
+
+	// 测试事件 end
+
+	//////////////////////////////////////////// 网络接收转发 begin
+	NETWORK_MSG_NOTIFY,
+	//////////////////////////////////////////// 网络接收转发 begin
+}

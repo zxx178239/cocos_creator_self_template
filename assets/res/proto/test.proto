@@ -1,0 +1,5 @@
+
+message test_req
+{
+    required int32 strContent = 1;              // 测试字符串
+}
