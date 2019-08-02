@@ -1,3 +1,12 @@
+// 日志标签记录
+// level : 2, 3, 4 ==> error | error、warn | error、warn、log
+export const LOG_TAGS = {
+    ALL_OPEN: true,
+    LOG_HALL: { level: 2 },
+    LOG_POP_UI: { level: 3},
+}
+
+
 class LogManager {
     public static readonly Instance = new LogManager();
 
@@ -9,20 +18,54 @@ class LogManager {
         return newStr;
     }
 
-    log(...INParams) {
-        if(gameDefine.SERVER_MODE === 1) {
+    /**
+     * @description: 普通日志打印
+     * @param : INTag: 参数标志
+     * @return : 
+     */
+    log(INTag, ...INParams) {
+        if(!LOG_TAGS.ALL_OPEN) {
             return;
         }
+        if(INTag.level < 4) {
+            return;
+        }
+
         let printStr = this._combineParams(...INParams);
         
         console.log(printStr);
     }
 
-    warn() {
+    /**
+     * @description: 警告日志打印
+     * @param : INTag: 场景标志
+     * @return : 
+     */
+    warn(INTag, ...INParams) {
+        if(!LOG_TAGS.ALL_OPEN) {
+            return;
+        }
+        if(INTag.level < 3) {
+            return;
+        }
 
+        let printStr = this._combineParams(...INParams);
+        
+        console.warn(printStr);
     }
 
-    error(...INParams) {
+    /**
+     * @description: 
+     * @param : 
+     * @return : 
+     */
+    error(INTag, ...INParams) {
+        if(!LOG_TAGS.ALL_OPEN) {
+            return;
+        }
+        if(INTag.level < 2) {
+            return;
+        }
         let printStr = this._combineParams(...INParams);
         
         console.error(printStr);

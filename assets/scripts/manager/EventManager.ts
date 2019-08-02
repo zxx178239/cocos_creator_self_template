@@ -6,7 +6,6 @@ class EventManager {
 	private _eventLists: any			= {};			// 事件管理列表
 
 
-
 	public addEventListener(INEventEnum: NOTIFY_EVENTS, INListenerFunc: Function) {
 		let curEventList = this._eventLists[INEventEnum];
 		if (!curEventList) {
@@ -50,7 +49,6 @@ class EventManager {
 		}
 	}
 
-	
 	public clearAllEventListener() {
 		for (let i in this._eventLists) {
 			this._eventLists[i] = [];

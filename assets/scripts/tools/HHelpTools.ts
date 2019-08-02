@@ -1,8 +1,10 @@
+import { PATH_HEADS } from "../common/GameDefine";
+import { LogMgr, LOG_TAGS } from "../manager/LogManager";
 
 export default class HHelpTools {
 
-    public requirePrefab(INPrefabFilePath: string, INCallback: Function) {
-        let completePath = "prefabs/" + INPrefabFilePath;
+    public static requirePrefab(INPrefabFilePath: string, INCallback: Function) {
+        let completePath = PATH_HEADS.PREFAB + INPrefabFilePath;
 
         let prefabRes = cc.loader.getRes(completePath);
 
@@ -13,7 +15,7 @@ export default class HHelpTools {
 
         cc.loader.loadRes(completePath, cc.Prefab, function(err, res) {
             if(err) {
-                app.logMgr.error("load prefab error", err, completePath);
+                LogMgr.error(LOG_TAGS.LOG_POP_UI, "load prefab error", err, completePath);
                 return;
             }
 

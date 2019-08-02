@@ -21,4 +21,12 @@ export default class AppManager extends cc.Component {
 		this.eventMgr		= EventMgr;
 		this.uiMgr			= UIMgr;
 	}
+
+	showMainScene() {
+
+	}
+
+	replaceToMainScene() {
+
+	}
 }

@@ -1,5 +1,5 @@
 import {AppManager} from "./manager/AppManager";
-import {GameDefine} from "./GameDefine";
+import {GameDefine} from "./common/GameDefine";
 import HHelpTools from "./tools/HHelpTools";
 
 window.app          = AppManager;
