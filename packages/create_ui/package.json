@@ -1,0 +1,18 @@
+{
+    "name": "create_ui",
+    "version": "0.0.1",
+    "description": "创建prefab并关联创建脚本",
+    "panel": {
+        "main": "panel/index.js",
+        "type": "dockable",
+        "title": "Create UI",
+        "width": 400,
+        "height": 300
+    },
+    "main": "main.js",
+    "main-menu": {
+        "Panel/create ui": {
+            "message": "create_ui:open"
+        }
+    }
+}
