@@ -1,3 +1,8 @@
+/*
+ * @Author: xxZhang
+ * @Date: 2019-08-05 20:54:21
+ * @Description: panel主脚本
+ */
 Editor.Panel.extend({
     style: `
       :host { margin: 5px; }
@@ -5,23 +10,36 @@ Editor.Panel.extend({
     `,
   
     template: `
-      <h2>标准面板</h2>
-      <ui-button id="btn">点击</ui-button>
+      <h2>创建prefab</h2>
+
+      <div>prefab路径:      <input type="text" id="prefabPath" /></div>
+      <p />
+      <form action="" method="get">
+        是否有脚本?
+        <label><input id="ScriptHas" type="radio" checked="checked" />是</label>
+        <label><input id="ScriptHas" type="radio" />否</label>
+      </form>
       <hr />
-      <div>状态: <span id="label">--</span></div>
+      <ui-button id="btn">创建</ui-button>
     `,
   
     $: {
       btn: '#btn',
-      label: '#label',
+      editText: '#prefabPath',
+      radioCheck: "#ScriptHas"
     },
   
     ready () {
       this.$btn.addEventListener('confirm', () => {
-        this.$label.innerText = '你好';
-        setTimeout(() => {
-          this.$label.innerText = '--';
-        }, 500);
+        // Editor.log(`value: ${this.$editText.value}`);
+        Editor.assetdb.create("db://assets/resources/prefabs/111", "", () => {
+          Editor.Scene.callSceneScript("create_ui", "create_new_node", (err) => {
+          
+          });
+        });
+        
       });
     },
+
+    
 });

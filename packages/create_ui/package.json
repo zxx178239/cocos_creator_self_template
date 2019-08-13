@@ -1,5 +1,6 @@
 {
     "name": "create_ui",
+    "scene-script": "scene-walker.js",
     "version": "0.0.1",
     "description": "创建prefab并关联创建脚本",
     "panel": {
