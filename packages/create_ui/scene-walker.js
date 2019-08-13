@@ -10,6 +10,5 @@ module.exports = {
         canvas.addChild(newNode);
         _Scene.createPrefab(newNode.uuid, "db://assets/resources/prefabs/111/");
         canvas.removeAllChildren(newNode);
-        console.log(event);
     }
 }

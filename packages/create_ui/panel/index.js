@@ -31,13 +31,23 @@ Editor.Panel.extend({
   
     ready () {
       this.$btn.addEventListener('confirm', () => {
+        var curValue = this.$editText.value;
+        var pathArr = curValue.split("/");
+        if(pathArr.length < 2) {
+          return;
+        }
+
         // Editor.log(`value: ${this.$editText.value}`);
-        Editor.assetdb.create("db://assets/resources/prefabs/111", "", () => {
+        Editor.assetdb.create(`db://assets/resources/prefabs/${pathArr[0]}`, "", () => {
           Editor.Scene.callSceneScript("create_ui", "create_new_node", (err) => {
           
           });
         });
-        
+        Editor.assetdb.create(`db://assets/scripts/${pathArr[0]}`, "", () => {
+          Editor.assetdb.create(`db://assets/scripts/${pathArr[0]}/${pathArr[1]}.js`, "", () => {
+
+          })
+        })
       });
     },
 
