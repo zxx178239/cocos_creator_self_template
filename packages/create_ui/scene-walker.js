@@ -4,12 +4,12 @@
  * @Description: 场景脚本文件，ipc和项目交互的脚本
  */
 module.exports = {
-    "create_new_node": function(event, param2) {
+    "create_new_node": function(event, param1, param2) {
         var canvas = cc.find("Canvas");
-        Editor.log("xxxx: ", event);
-        var newNode = new cc.Node(`aa`);
+        Editor.log("xxxx: ", param2);
+        var newNode = new cc.Node(`${param2}`);
         canvas.addChild(newNode);
-        _Scene.createPrefab(newNode.uuid, "db://assets/resources/prefabs/111/");
+        _Scene.createPrefab(newNode.uuid, `db://assets/resources/prefabs/${param1}/`);
         canvas.removeAllChildren(newNode);
     }
 }

@@ -56,7 +56,7 @@ Editor.Panel.extend({
         let createPrefab = function(INFileName) {
           fs.access(`${prefixPath}/resources/prefabs/${INFileName}`, (err) => {
             if(err) {
-              Editor.Scene.callSceneScript("create_ui", "create_new_node", (err) => {
+              Editor.Scene.callSceneScript("create_ui", "create_new_node", pathArr[0], pathArr[1], (err) => {
             
               });
             }else {
