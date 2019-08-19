@@ -1,9 +1,15 @@
+/*
+ * @Author: xxZhang
+ * @Date: 2019-08-01 21:08:31
+ * @Description: 日志管理器
+ */
 // 日志标签记录
 // level : 2, 3, 4 ==> error | error、warn | error、warn、log
 export const LOG_TAGS = {
     ALL_OPEN: true,
     LOG_HALL: { level: 2 },
     LOG_POP_UI: { level: 3},
+    LOG_BALL_GAME_UI: {level: 4},
 }
 
 

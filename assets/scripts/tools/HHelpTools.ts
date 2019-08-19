@@ -22,4 +22,13 @@ export default class HHelpTools {
             INCallback(cc.instantiate(res));
         })
     }
+
+    /**
+     * @description: 对数字前置补0
+     * @param : 
+     * @return : 
+     */
+    public static addPreZero(INNum) {
+        return ('00' + INNum).slice(-2);
+    }
 }

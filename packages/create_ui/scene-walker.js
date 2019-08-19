@@ -3,13 +3,27 @@
  * @Date: 2019-08-13 19:31:51
  * @Description: 场景脚本文件，ipc和项目交互的脚本
  */
+const dontSelectCorrectAssetMsg = {
+    type: 'warning',
+    buttons: ['OK'],
+    title: 'warning',
+    message: 'Please select a UI prefab!',
+    defaultId: 0,
+    noLink: true
+};
+
+
 module.exports = {
-    "create_new_node": function(event, param1, param2) {
+    "create_new_node": function (event, param1, param2, param3, param4) {
         var canvas = cc.find("Canvas");
-        Editor.log("xxxx: ", param2);
+        // Editor.log("xxxx: ", param2);
+
         var newNode = new cc.Node(`${param2}`);
         canvas.addChild(newNode);
-        _Scene.createPrefab(newNode.uuid, `db://assets/resources/prefabs/${param1}/`);
+        // newNode.addComponent(`${param2}`);
+        _Scene.createPrefab(newNode.uuid, `db://assets/${param3}/prefabs/${param4}/${param1}/`);
         canvas.removeAllChildren(newNode);
+        Editor.log("create ok");
+
     }
 }

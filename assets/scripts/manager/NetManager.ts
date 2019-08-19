@@ -24,7 +24,6 @@ class NetManager {
             return;
         }
 
-
         this._webSocket          = new WebSocketProtocal();
         this._networkMsgDispatch = new NetworkMsgDispatch();
         this._startPulse();

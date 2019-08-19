@@ -1,5 +1,5 @@
 import UIBase from "../../components/UIBase";
-import { UIMgr } from "../manager/UIManager";
+import { UIMgr } from "../../manager/UIManager";
 
 const {ccclass, property} = cc._decorator;
 

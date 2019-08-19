@@ -33,7 +33,9 @@ Editor.Panel.extend({
     },
   
     ready () {
-      var prefixPath = `${Editor.Project.path}/assets`
+      var prefixPath = `${Editor.Project.path}/assets`;
+      var gameName = "ballgame";
+      var prefabPath = "res";
       this.$btn.addEventListener('confirm', () => {
         var curValue = this.$editText.value;
         var pathArr = curValue.split("/");
@@ -41,22 +43,10 @@ Editor.Panel.extend({
           return;
         }
 
-        let createFile = function(INFileName) {
-            fs.access(`${prefixPath}/scripts/${INFileName}`, (err) => {
-              if(err) {
-                Editor.assetdb.create(`db://assets/scripts/${INFileName}`, "", () => {
-        
-                })
-              }else {
-                Editor.log("文件已经存在");
-              }
-            })
-        }
-
         let createPrefab = function(INFileName) {
-          fs.access(`${prefixPath}/resources/prefabs/${INFileName}`, (err) => {
+          fs.access(`${prefixPath}/resources/prefabs/${gameName}/${INFileName}`, (err) => {
             if(err) {
-              Editor.Scene.callSceneScript("create_ui", "create_new_node", pathArr[0], pathArr[1], (err) => {
+              Editor.Scene.callSceneScript("create_ui", "create_new_node", pathArr[0], pathArr[1], prefabPath, gameName, (err) => {
             
               });
             }else {
@@ -65,25 +55,43 @@ Editor.Panel.extend({
           })
         }
 
-        fs.access(`${prefixPath}/resources/prefabs/${pathArr[0]}`, (err) => {
+        let createFile = function(INFileName) {
+            fs.access(`${prefixPath}/scripts/modules/${gameName}/${INFileName}`, (err) => {
+              if(err) {
+                fs.readFile(`${Editor.Project.path}/packages/create_ui/new-template.ts`, {flag: 'r+', encoding: 'utf8'}, (err, data) => {
+                  if(err) {
+                    Editor.log("new-template.ts error");
+                    return;
+                  }
+                  data = data.replace("NewClass", pathArr[1]);
+                  Editor.assetdb.create(`db://assets/scripts/modules/${gameName}/${INFileName}`, data, () => {
+                    fs.access(`${prefixPath}/${prefabPath}/prefabs/${pathArr[0]}`, (err) => {
+                      if(err && err.code == "ENOENT") {
+                        Editor.log("文件不存在");
+                        Editor.assetdb.create(`db://assets/${prefabPath}/prefabs/${gameName}/${pathArr[0]}`, "", () => {
+                          createPrefab(`${pathArr[0]}/${pathArr[1]}.prefab`);
+                        });
+                      }else {
+                        createPrefab(`${pathArr[0]}/${pathArr[1]}.prefab`);
+                      }
+                    })
+                  })
+                })
+                
+              }else {
+                Editor.log("文件已经存在");
+              }
+            })
+        }
+
+        fs.access(`${prefixPath}/scripts/${pathArr[0]}`, (err) => {
           if(err && err.code == "ENOENT") {
-            Editor.log("文件不存在");
-            Editor.assetdb.create(`db://assets/resources/prefabs/${pathArr[0]}`, "", () => {
-              createPrefab(`${pathArr[0]}/${pathArr[1]}.prefab`);
-            });
-          }else {
-            createPrefab(`${pathArr[0]}/${pathArr[1]}.prefab`);
-          }
-        })
-        
-        fs.access(`${prefixPath}/resources/prefabs/${pathArr[0]}`, (err) => {
-          if(err && err.code == "ENOENT") {
-            Editor.log("文件不存在");
-            Editor.assetdb.create(`db://assets/scripts/${pathArr[0]}`, "", () => {
-              createFile(`${pathArr[0]}/${pathArr[1]}.js`);
+            // Editor.log("文件不存在");
+            Editor.assetdb.create(`db://assets/scripts/modules/${gameName}/${pathArr[0]}`, "", () => {
+              createFile(`${pathArr[0]}/${pathArr[1]}.ts`);
             })
           }else {
-            createFile(`${pathArr[0]}/${pathArr[1]}.js`);
+            createFile(`${pathArr[0]}/${pathArr[1]}.ts`);
           }
         })  
         
