@@ -12,6 +12,19 @@
       false,
       false,
       false
+    ],
+    [
+      false,
+      false,
+      false,
+      false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false
     ]
   ],
   "design-resolution-height": 720,
@@ -32,7 +45,9 @@
   "group-list": [
     "default",
     "small_camera_mask",
-    "big_camera_mask"
+    "big_camera_mask",
+    "ball_game_bg",
+    "ball_game_ui"
   ],
   "last-module-event-record-time": 0,
   "simulator-orientation": false,

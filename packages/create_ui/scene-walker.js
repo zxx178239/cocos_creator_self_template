@@ -14,14 +14,14 @@ const dontSelectCorrectAssetMsg = {
 
 
 module.exports = {
-    "create_new_node": function (event, param1, param2, param3, param4) {
+    "create_new_node": function (event, param1, param2, param3) {
         var canvas = cc.find("Canvas");
         // Editor.log("xxxx: ", param2);
 
         var newNode = new cc.Node(`${param2}`);
         canvas.addChild(newNode);
         // newNode.addComponent(`${param2}`);
-        _Scene.createPrefab(newNode.uuid, `db://assets/${param3}/prefabs/${param4}/${param1}/`);
+        _Scene.createPrefab(newNode.uuid, `db://assets/${param3}/prefabs/${param1}/`);
         canvas.removeAllChildren(newNode);
         Editor.log("create ok");
 

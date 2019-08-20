@@ -34,7 +34,6 @@ Editor.Panel.extend({
   
     ready () {
       var prefixPath = `${Editor.Project.path}/assets`;
-      var gameName = "ballgame";
       var prefabPath = "res";
       this.$btn.addEventListener('confirm', () => {
         var curValue = this.$editText.value;
@@ -44,9 +43,9 @@ Editor.Panel.extend({
         }
 
         let createPrefab = function(INFileName) {
-          fs.access(`${prefixPath}/resources/prefabs/${gameName}/${INFileName}`, (err) => {
+          fs.access(`${prefixPath}/resources/prefabs/${INFileName}`, (err) => {
             if(err) {
-              Editor.Scene.callSceneScript("create_ui", "create_new_node", pathArr[0], pathArr[1], prefabPath, gameName, (err) => {
+              Editor.Scene.callSceneScript("create_ui", "create_new_node", pathArr[0], pathArr[1], prefabPath, (err) => {
             
               });
             }else {
@@ -56,7 +55,7 @@ Editor.Panel.extend({
         }
 
         let createFile = function(INFileName) {
-            fs.access(`${prefixPath}/scripts/modules/${gameName}/${INFileName}`, (err) => {
+            fs.access(`${prefixPath}/scripts/modules/${INFileName}`, (err) => {
               if(err) {
                 fs.readFile(`${Editor.Project.path}/packages/create_ui/new-template.ts`, {flag: 'r+', encoding: 'utf8'}, (err, data) => {
                   if(err) {
@@ -64,11 +63,11 @@ Editor.Panel.extend({
                     return;
                   }
                   data = data.replace("NewClass", pathArr[1]);
-                  Editor.assetdb.create(`db://assets/scripts/modules/${gameName}/${INFileName}`, data, () => {
+                  Editor.assetdb.create(`db://assets/scripts/modules/${INFileName}`, data, () => {
                     fs.access(`${prefixPath}/${prefabPath}/prefabs/${pathArr[0]}`, (err) => {
                       if(err && err.code == "ENOENT") {
                         Editor.log("文件不存在");
-                        Editor.assetdb.create(`db://assets/${prefabPath}/prefabs/${gameName}/${pathArr[0]}`, "", () => {
+                        Editor.assetdb.create(`db://assets/${prefabPath}/prefabs/${pathArr[0]}`, "", () => {
                           createPrefab(`${pathArr[0]}/${pathArr[1]}.prefab`);
                         });
                       }else {
@@ -87,7 +86,7 @@ Editor.Panel.extend({
         fs.access(`${prefixPath}/scripts/${pathArr[0]}`, (err) => {
           if(err && err.code == "ENOENT") {
             // Editor.log("文件不存在");
-            Editor.assetdb.create(`db://assets/scripts/modules/${gameName}/${pathArr[0]}`, "", () => {
+            Editor.assetdb.create(`db://assets/scripts/modules/${pathArr[0]}`, "", () => {
               createFile(`${pathArr[0]}/${pathArr[1]}.ts`);
             })
           }else {
