@@ -33,7 +33,7 @@ export default class NodeRochingBar extends cc.Component {
         let worldPos = event.getLocation();
         let curPos = this.node.convertToNodeSpaceAR(worldPos);
         this.spriteRockNode.active = true;
-        this.spriteRockNode.rotation = this.getRotateAngle(this._lastPosition);
+        this.spriteRockNode.rotation = this.getRotateAngle(curPos);
         this._lastPosition = curPos;
         this.spriteRockNode.position = this.getArrowLoc();
     }
@@ -41,7 +41,7 @@ export default class NodeRochingBar extends cc.Component {
     onTouchMove(event) {
         let curWorldPos = event.getLocation();
         let curPos = this.node.convertToNodeSpaceAR(curWorldPos);
-        this.spriteRockNode.rotation = this.getRotateAngle(this._lastPosition);
+        this.spriteRockNode.rotation = this.getRotateAngle(curPos);
         this._lastPosition = curPos;
         this.spriteRockNode.position = this.getArrowLoc();
     }
@@ -55,7 +55,8 @@ export default class NodeRochingBar extends cc.Component {
     }
 
     getRotateAngle(INCurPos) {
-        let dir = cc.v2(INCurPos.x - this._lastPosition.x, INCurPos.y - this._lastPosition.y);
+        // let dir = cc.v2(INCurPos.x - this._lastPosition.x, INCurPos.y - this._lastPosition.y);
+        let dir = cc.v2(INCurPos.x - 0, INCurPos.y - 0);
         let angle = dir.signAngle(cc.v2(1, 0));
         let degree = angle / Math.PI * 180;
         return degree;
