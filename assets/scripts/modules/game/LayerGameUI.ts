@@ -4,8 +4,8 @@
  * @Description: 球吃球游戏的主UI
  */
 
-import { TIME_TYPES } from "../../../common/GameDefine";
-import { LogMgr, LOG_TAGS } from "../../../manager/LogManager";
+import { TIME_TYPES } from "../../common/GameDefine";
+import { LogMgr, LOG_TAGS } from "../../manager/LogManager";
 
 const {ccclass, property} = cc._decorator;
 

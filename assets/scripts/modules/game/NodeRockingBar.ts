@@ -13,6 +13,7 @@ export default class NodeRochingBar extends cc.Component {
     spriteRockNode: cc.Node         = null;
 
     private _lastPosition: cc.Vec2  = cc.v2(0, 0);
+    private _moveDir: cc.Vec2 = cc.v2(0, 0);
 
     onLoad () {
         this.registerTouchListener();
@@ -48,10 +49,14 @@ export default class NodeRochingBar extends cc.Component {
 
     onTouchEnd(event) {
         this.spriteRockNode.active = false;
+        this._moveDir = cc.v2(0, 0);
+        this.spriteRockNode.rotation = 0;
     }
 
     onTouchCancel(event) {
         this.spriteRockNode.active = false;
+        this._moveDir = cc.v2(0, 0);
+        this.spriteRockNode.rotation = 0;
     }
 
     getRotateAngle(INCurPos) {
@@ -71,7 +76,13 @@ export default class NodeRochingBar extends cc.Component {
             newPos.x = widthSub * newPos.x / len;
             newPos.y = widthSub * newPos.y / len;
         }
+        this._moveDir.x = newPos.x / len;
+        this._moveDir.y = newPos.y / len;
         return newPos;
+    }
+
+    getMoveDir() {
+        return this._moveDir;
     }
     // update (dt) {}
 }

@@ -30,8 +30,8 @@ export default class LayerBg extends cc.Component {
         for(let i = 0; i < 18; i = i + 2) {
             let newNode = cc.instantiate(this.subMapPrefab);
             newNode.parent = this.node;
-            newNode.position = cc.v2(this.node.width * BG_POS_MAPS[i], 
-                                    this.node.height * BG_POS_MAPS[i + 1]);
+            newNode.position = cc.v2(newNode.width * BG_POS_MAPS[i], 
+                                    newNode.height * BG_POS_MAPS[i + 1]);
         }
         this.node.width = this.node.width * 3;
         this.node.height = this.node.height * 3;
