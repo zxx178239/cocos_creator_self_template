@@ -38,10 +38,11 @@ export default class LayerBgCamera extends cc.Component {
         if(moveDir.mag() < 0.5) {
             return;
         }
-        LogMgr.log(LOG_TAGS.LOG_BALL_GAME_UI, "INDir mag: ", moveDir.mag());
+        // LogMgr.log(LOG_TAGS.LOG_BALL_GAME_UI, "INDir mag: ", moveDir.mag());
         let diffX = moveDir.x * this._speed;
         let diffY = moveDir.y * this._speed;
 
+        // 计算是否到达边界了
         let tmpX = this.node.x + diffX * dt;
         let moveAlign = Math.abs((this._refNodeWidth - cc.winSize.width)) / 2;
         tmpX = this.getRightValue(tmpX, moveAlign);
@@ -54,7 +55,6 @@ export default class LayerBgCamera extends cc.Component {
     }
 
     getRightValue(INTmpValue, INMoveAlign) {
-
         if (INTmpValue <= -INMoveAlign) {
             return -INMoveAlign;
         } else if (INTmpValue >= INMoveAlign) {

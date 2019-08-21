@@ -36,8 +36,8 @@ export default class NewClass extends cc.Component {
         let curWidth = cc.winSize.width;
         let curHeight = cc.winSize.height;
 
-        let DesignWidth = 667,
-            DesignHeight = 375,
+        let DesignWidth = 640,
+            DesignHeight = 360,
             DesignRatio = DesignWidth / DesignHeight,
             
             ratio = curWidth / curHeight,
