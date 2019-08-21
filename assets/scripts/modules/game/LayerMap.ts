@@ -18,6 +18,9 @@ export default class LayerBg extends cc.Component {
     @property(cc.Prefab)
     subMapPrefab: cc.Prefab = null;                     // 子地图对应的prefab
 
+    @property(cc.Node)
+    bgCameraNode: cc.Node   = null;                     // 背景摄像机节点
+
     onLoad () {
         this.createBigMap();
     }
@@ -27,14 +30,21 @@ export default class LayerBg extends cc.Component {
     }
 
     createBigMap() {
+        let _width = 0;
+        let _height = 0;
         for(let i = 0; i < 18; i = i + 2) {
             let newNode = cc.instantiate(this.subMapPrefab);
             newNode.parent = this.node;
             newNode.position = cc.v2(newNode.width * BG_POS_MAPS[i], 
                                     newNode.height * BG_POS_MAPS[i + 1]);
+            _width = newNode.width;
+            _height = newNode.height;
         }
-        this.node.width = this.node.width * 3;
-        this.node.height = this.node.height * 3;
+        this.node.width = _width * 3;
+        this.node.height = _height * 3;
+
+        this.bgCameraNode.getComponent("LayerBgCamera").setRefValues(this.node.width,
+                                                                    this.node.height);
     }
 
     // update (dt) {}

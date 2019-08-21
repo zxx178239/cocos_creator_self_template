@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.31875,
-      "y": 0.31875,
+      "x": 0.29295654296875,
+      "y": 0.29295654296875,
       "z": 1
     },
     "_quat": {
@@ -526,6 +526,9 @@
     "_enabled": true,
     "subMapPrefab": {
       "__uuid__": "77d4f534-b6a3-4166-bb48-7e0a36f35cca"
+    },
+    "bgCameraNode": {
+      "__id__": 5
     },
     "_id": "0dEl6ZlXRMdIqAr94YS2Ck"
   },

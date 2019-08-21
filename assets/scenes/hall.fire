@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3058470764617691,
-      "y": 0.3058470764617691,
+      "x": 0.22482624934285203,
+      "y": 0.22482624934285203,
       "z": 1
     },
     "_quat": {
@@ -280,7 +280,7 @@
     },
     "_enabled": true,
     "_useOriginalSize": true,
-    "_url": "http://sudoku.ngmm001.com/?scene=HallScene&gameId=32675",
+    "_url": "https://heqiuguang.cn/demo/mid-practice/21/build/web-mobile/",
     "webviewEvents": [],
     "_id": "b198rk9jxIHqdR15vMqZVt"
   },
