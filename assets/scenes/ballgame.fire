@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.29765625,
-      "y": 0.29765625,
+      "x": 0.3279296875,
+      "y": 0.3279296875,
       "z": 1
     },
     "_quat": {
@@ -84,7 +84,7 @@
     "_level": 0,
     "_components": [
       {
-        "__id__": 54
+        "__id__": 55
       }
     ],
     "_prefab": null,
@@ -720,14 +720,14 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 51
+        "__id__": 52
       },
       {
-        "__id__": 52
+        "__id__": 53
       }
     ],
     "_prefab": {
-      "__id__": 53
+      "__id__": 54
     },
     "_opacity": 255,
     "_color": {
@@ -1542,21 +1542,21 @@
         "__id__": 42
       },
       {
-        "__id__": 45
+        "__id__": 46
       }
     ],
     "_active": true,
     "_level": 2,
     "_components": [
       {
-        "__id__": 48
+        "__id__": 49
       },
       {
-        "__id__": 49
+        "__id__": 50
       }
     ],
     "_prefab": {
-      "__id__": 50
+      "__id__": 51
     },
     "_opacity": 255,
     "_color": {
@@ -1615,10 +1615,13 @@
     "_components": [
       {
         "__id__": 43
+      },
+      {
+        "__id__": 44
       }
     ],
     "_prefab": {
-      "__id__": 44
+      "__id__": 45
     },
     "_opacity": 255,
     "_color": {
@@ -1693,6 +1696,18 @@
     "_id": "94HzLyG0NFGKIrjzgwQkgV"
   },
   {
+    "__type__": "ac800VerLBFDaH/NPEJZqlB",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 42
+    },
+    "_enabled": true,
+    "Material": null,
+    "_resolution": null,
+    "_id": "a7XQT84SNNRKZ4AZJ+BdwL"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 18
@@ -1715,11 +1730,11 @@
     "_level": 3,
     "_components": [
       {
-        "__id__": 46
+        "__id__": 47
       }
     ],
     "_prefab": {
-      "__id__": 47
+      "__id__": 48
     },
     "_opacity": 255,
     "_color": {
@@ -1770,7 +1785,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 45
+      "__id__": 46
     },
     "_enabled": true,
     "_spriteFrame": {
@@ -1813,7 +1828,7 @@
     },
     "_enabled": true,
     "spriteRockNode": {
-      "__id__": 45
+      "__id__": 46
     },
     "_id": "d94t0fn6lJHYlMlgEufppo"
   },

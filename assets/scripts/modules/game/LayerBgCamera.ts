@@ -26,6 +26,7 @@ export default class LayerBgCamera extends cc.Component {
     }
 
     onDestroy() {
+        
     }
 
     setRefValues(INWidth, INHeight) {
@@ -63,5 +64,4 @@ export default class LayerBgCamera extends cc.Component {
             return INTmpValue;
         }
     }
-
 }
