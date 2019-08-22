@@ -8,7 +8,7 @@ const renderer = cc.renderer.renderEngine.renderer;
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class WaterMaterial extends ShaderMaterial {
+class WaterMaterial extends ShaderMaterial {
 
     @property({override: true})
     name: string        = "water";
@@ -51,8 +51,7 @@ export default class WaterMaterial extends ShaderMaterial {
         this.effect.setProperty("iResolution", INValue);
     }
 
-
-    onLoad () {
+    ctor() {
         this.uniform(
             "iResolution",
             renderer.PARAM_FLOAT2,
@@ -64,11 +63,6 @@ export default class WaterMaterial extends ShaderMaterial {
             0
         );
     }
-
-    start () {
-
-    }
-
     
 
     // update (dt) {}

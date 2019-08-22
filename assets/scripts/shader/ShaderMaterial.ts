@@ -14,6 +14,8 @@ const {ccclass, property} = cc._decorator;
 export class ShaderMaterial extends Material {
     protected name: string         = "default";
     
+    protected batch: boolean        = true;
+
     protected vsh: string         = `
                         uniform mat4 viewProj;
                         #ifdef use2DPos
@@ -179,4 +181,4 @@ export class ShaderMaterial extends Material {
         this._effect.setProperty(name, val);
     }
 }
-ShaderMaterial.batch = true;
+// ShaderMaterial.batch = true;

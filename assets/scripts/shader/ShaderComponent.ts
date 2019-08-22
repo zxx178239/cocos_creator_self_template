@@ -10,8 +10,8 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class ShaderComponent extends cc.Component {
 
-    @property({type: Function, visible: false})
-    Material: Function  = null;
+    @property({type: Object, visible: false})
+    Material: Object  = null;
 
     private _material;
     @property({type: ShaderMaterial, serializable: false, visible: false})
@@ -32,6 +32,7 @@ export default class ShaderComponent extends cc.Component {
         }
 
         // 替换材质
+        // 
         let material = this._material || new this.Material(this.Material.batch);
         material.useColor = !!originMaterial.useColor;
         material.useTexture = !!originMaterial.useTexture;
