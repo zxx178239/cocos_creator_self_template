@@ -4,15 +4,14 @@
  * @Description: 水组件，来源于网络
  */
 import ShaderComponent from "../ShaderComponent";
-import { WaterMaterial } from "./WaterMaterial";
+import { WaterShaderMaterial } from "./WaterShaderMaterial";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class WaterComponent extends ShaderComponent {
+export default class WaterShaderComponent extends ShaderComponent {
 
     private _time: number       = 0;
-    @property({type: Number, visible: false})
     public get time() {
         return this._time;
     }
@@ -31,7 +30,7 @@ export default class WaterComponent extends ShaderComponent {
     }
 
     onLoad () {
-        this.Material = WaterMaterial;
+        this.Material = WaterShaderMaterial;
     }
 
     start () {

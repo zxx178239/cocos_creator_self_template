@@ -8,7 +8,7 @@ const renderer = cc.renderer.renderEngine.renderer;
 // const {ccclass, property} = cc._decorator;
 
 // @ccclass
-export class WaterMaterial extends ShaderMaterial {
+export class WaterShaderMaterial extends ShaderMaterial {
 
     // @property(Number)
     private _time: Number;

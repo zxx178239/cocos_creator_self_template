@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3279296875,
-      "y": 0.3279296875,
+      "x": 0.24765625,
+      "y": 0.24765625,
       "z": 1
     },
     "_quat": {
@@ -1696,7 +1696,7 @@
     "_id": "94HzLyG0NFGKIrjzgwQkgV"
   },
   {
-    "__type__": "ac800VerLBFDaH/NPEJZqlB",
+    "__type__": "cc7af77eNtGhoY6TV7kd3X6",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1704,8 +1704,7 @@
     },
     "_enabled": true,
     "Material": null,
-    "_resolution": null,
-    "_id": "a7XQT84SNNRKZ4AZJ+BdwL"
+    "_id": "f0AiFuwWJJ6pj2OUF6TNHB"
   },
   {
     "__type__": "cc.PrefabInfo",
