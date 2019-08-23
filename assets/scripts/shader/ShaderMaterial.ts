@@ -8,9 +8,6 @@ const Material = cc.renderer.renderEngine.Material;
 const renderer = cc.renderer.renderEngine.renderer;
 const gfx = cc.renderer.renderEngine.gfx;
 
-const {ccclass, property} = cc._decorator;
-
-@ccclass
 export class ShaderMaterial extends Material {
     protected name: string         = "default";
     
@@ -20,6 +17,8 @@ export class ShaderMaterial extends Material {
                         uniform mat4 viewProj;
                         #ifdef use2DPos
                             attribute vec2 a_position;
+                        #else
+                            attribute vec3 a_position;
                         #endif
 
                         attribute lowp vec4 a_color;
@@ -30,14 +29,15 @@ export class ShaderMaterial extends Material {
 
                         #ifdef useTexture
                             attribute mediump vec2 a_uv0;
-                            varying mediump vec2 uv0
+                            varying mediump vec2 uv0;
                         #endif
 
                         #ifdef useColor
                             varying lowp vec4 v_fragmentColor;
                         #endif
 
-                        void main() {
+                        void main() 
+                        {
                             mat4 mvp;
                             #ifdef useModel
                                 mvp = viewProj * model;
@@ -65,19 +65,16 @@ export class ShaderMaterial extends Material {
     protected fsh: string         = "";
     
     private _mainTech;
-    @property({type: renderer.Technique})
     public get mainTech() {
         return this._mainTech;
     }
 
     private _effect;
-    @property({type: renderer.Effect})
     public get effect() {
         return this._effect;
     }
 
     private _texture;
-    @property({type: cc.Texture2D})
     public get texture() {
         return this._texture;
     }
@@ -90,7 +87,6 @@ export class ShaderMaterial extends Material {
     }
 
     private _color = new cc.Color(255, 255, 255, 255);
-    @property({type: cc.Color})
     public get color() {
         return this._color;
     }
@@ -104,11 +100,6 @@ export class ShaderMaterial extends Material {
             color.a = INVal.getA() / 255;
             this._effect.setProperty("color", color);
         }
-    }
-
-    constructor() {
-        super();
-        this.init();
     }
 
     init() {
