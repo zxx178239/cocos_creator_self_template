@@ -27,6 +27,7 @@ export default class LayerBall extends cc.Component {
             newBall.parent = this.node;
             newBall.position = cc.v2(Math.random() * 1000, Math.random() * 400);
         }
+        this.node.children[0].getComponent("NodeBall").initBall(true);
     }
 
     // update (dt) {}
