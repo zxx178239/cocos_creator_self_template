@@ -34,9 +34,27 @@ export default class NodeBall extends cc.Component {
 
     update() {
         if(!this._isSelfBall) {
-            return;
+            this.doOther();
+        }else {
+            this.doForSelf();
         }
+    }
+
+    doForSelf() {
         this.node.position = this._bgCamera.position;
+        // console.log("this.node.position: ", this.node.position);
+    }
+
+    doOther() {
+
+    }
+
+    onBeginContact(contact, selfCollider, otherCollider) {
+        console.log("collider for ball");
+    }
+
+    onEndContact(contact, selfCollider, otherCollider) {
+
     }
 
     // update (dt) {}

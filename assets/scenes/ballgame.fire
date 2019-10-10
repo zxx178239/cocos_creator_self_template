@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.24765625,
-      "y": 0.24765625,
+      "x": 0.3432074652777778,
+      "y": 0.3432074652777778,
       "z": 1
     },
     "_quat": {
@@ -85,6 +85,9 @@
     "_components": [
       {
         "__id__": 55
+      },
+      {
+        "__id__": 56
       }
     ],
     "_prefab": null,
@@ -200,7 +203,7 @@
       "__id__": 3
     },
     "_enabled": true,
-    "_cullingMask": -25,
+    "_cullingMask": -31,
     "_clearFlags": 7,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -209,7 +212,7 @@
       "b": 0,
       "a": 255
     },
-    "_depth": -1,
+    "_depth": 1,
     "_zoomRatio": 1,
     "_targetTexture": null,
     "_id": "b4AtUL6S9OSYkZUqW2lqXC"
@@ -285,7 +288,7 @@
       "__id__": 5
     },
     "_enabled": true,
-    "_cullingMask": -24,
+    "_cullingMask": -120,
     "_clearFlags": 0,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -377,7 +380,7 @@
       "__id__": 8
     },
     "_enabled": true,
-    "_cullingMask": -16,
+    "_cullingMask": -112,
     "_clearFlags": 0,
     "_backgroundColor": {
       "__type__": "cc.Color",
@@ -1702,7 +1705,7 @@
     "node": {
       "__id__": 42
     },
-    "_enabled": true,
+    "_enabled": false,
     "Material": null,
     "_id": "f0AiFuwWJJ6pj2OUF6TNHB"
   },
@@ -1936,5 +1939,15 @@
     "_fitWidth": false,
     "_fitHeight": true,
     "_id": "bdRys4Mo5MB6smLbpBAzu2"
+  },
+  {
+    "__type__": "52e56wIZFlPUaGNahnjHnkk",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "_id": "9c7K6NWpNCm5SkV3mjkj9N"
   }
 ]

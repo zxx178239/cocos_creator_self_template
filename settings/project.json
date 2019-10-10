@@ -25,6 +25,24 @@
       false,
       false,
       false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false
     ]
   ],
   "design-resolution-height": 750,
@@ -47,7 +65,9 @@
     "small_camera_mask",
     "big_camera_mask",
     "ball_game_bg",
-    "ball_game_ui"
+    "ball_game_ui",
+    "node_ball",
+    "node_food"
   ],
   "last-module-event-record-time": 1566364508388,
   "simulator-orientation": false,
@@ -55,7 +75,6 @@
     "height": 640,
     "width": 960
   },
-  "start-scene": "47c3725a-9804-4944-b7c1-400b613621b7",
   "use-customize-simulator": true,
   "use-project-simulator-setting": false
 }

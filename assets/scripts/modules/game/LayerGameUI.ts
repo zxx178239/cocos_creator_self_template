@@ -7,7 +7,7 @@
 import { TIME_TYPES } from "../../common/GameDefine";
 import { LogMgr, LOG_TAGS } from "../../manager/LogManager";
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class LayerGameUI extends cc.Component {
@@ -15,7 +15,7 @@ export default class LayerGameUI extends cc.Component {
     @property(cc.Node)
     labelTime: cc.Node = null;
 
-    onLoad () {
+    onLoad() {
         let curTimeTick = this.labelTime.getComponent("TimeTick");
         curTimeTick.setEndCallback(() => {
             this.updateTimeEnd();
@@ -25,13 +25,12 @@ export default class LayerGameUI extends cc.Component {
         curTimeTick.startTimeTick();
     }
 
-    start () {
+    start() {
 
     }
 
     updateTimeEnd() {
         LogMgr.log(LOG_TAGS.LOG_BALL_GAME_UI, "update time end");
     }
-
     // update (dt) {}
 }

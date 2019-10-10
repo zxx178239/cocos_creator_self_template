@@ -19,7 +19,8 @@ export default class LayerFoods extends cc.Component {
 
     onLoad () {
         this.initFoods();
-        this.schedule(this.createFoods, 0.2);
+        // this.schedule(this.createFoods, 5);
+        this.createFoods();
     }
 
     start () {
@@ -51,7 +52,8 @@ export default class LayerFoods extends cc.Component {
         let randIndex = Math.floor(Math.random() * 3) + 1;
         let newFood = cc.instantiate(this.foodPrefab);
         ResMgr.replaceSprite(newFood, `foods/icon_food_${randIndex}`);
-        newFood.position = HHelpTools.getRandomPos();
+        // newFood.position = HHelpTools.getRandomPos();
+        newFood.position = cc.v2(0, 0);
         return newFood;
     }
 
