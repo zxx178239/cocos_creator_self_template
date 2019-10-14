@@ -1,4 +1,6 @@
 import { GuideMgr } from "./GuideManager";
+import { inherits } from "util";
+import { UIMgr } from "../manager/UIManager";
 
 /*
  * @Author: xxZhang
@@ -18,6 +20,18 @@ export default class GuideScene extends cc.Component {
 
     start () {
 
+    }
+
+    onPressButton(event, custom) {
+        let intValue = parseInt(custom);
+
+        if(intValue === 0) {
+            UIMgr.pushLayer("startpopui/LayerSignin");
+        }else if(intValue === 1) {
+            UIMgr.pushLayer("startpopui/LayerActivity");
+        }else if(intValue === 2) {
+            UIMgr.pushLayer("startpopui/LayerGift");
+        }
     }
 
     // update (dt) {}

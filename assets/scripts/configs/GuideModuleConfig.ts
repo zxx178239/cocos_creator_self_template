@@ -6,11 +6,18 @@
 export const GuideModuleConfig = {
     "guidescene": {
         "first_step": 1,
-        "open": 0,
+        "open": 1,
     },
-    "LayerShop": {
+    "LayerSignin": {
+        "first_step": 2,
+        "open": 1,
+    },
+    "LayerActivity": {
+        "first_step": 2,
+        "open": 1,
+    },
+    "LayerGift": {
         "first_step": 2,
         "open": 1,
     }
-
 }

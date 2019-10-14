@@ -6,4 +6,5 @@
 
 export enum LayerZOrder {
     UI = 20,                                // 弹窗的层级
+    GUIDE_UI = 50,                          // 引导的层级
 }

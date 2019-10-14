@@ -18,6 +18,9 @@ export default class LayerGuideButton extends UIBase {
     @property(cc.Mask)
     maskComponent: cc.Mask              = null;
 
+    @property(cc.Node)
+    grayNode: cc.Node                   = null;
+
     _touchNode: cc.Node                 = null;     // 触摸点
 
     onUILoad () {
@@ -54,7 +57,19 @@ export default class LayerGuideButton extends UIBase {
             this.maskComponent.node.width = this._touchNode.width;
             this.maskComponent.node.height = this._touchNode.height;
         }
-        this.maskComponent.enabled = true;
+
+        setTimeout(() => {
+            let worldPos = this._touchNode.convertToWorldSpaceAR(cc.v2(0, 0));
+            let localPos = this.node.convertToNodeSpaceAR(worldPos);
+    
+            this.maskComponent.node.x = localPos.x;
+            this.maskComponent.node.y = localPos.y;
+    
+            this.grayNode.x = -localPos.x;
+            this.grayNode.y = -localPos.y;
+    
+            this.maskComponent.enabled = true;
+        }, guideInfo["delay_time"] || 100);
     }
 
     onTouchStart(event) {

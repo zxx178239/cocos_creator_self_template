@@ -5,6 +5,8 @@
  */
 import { GuideStepConfig } from "../configs/GuideStepConfig";
 import { UIMgr } from "../manager/UIManager";
+import { GuideModuleConfig } from "../configs/GuideModuleConfig";
+import { LayerZOrder } from "../common/LayerZOrderDefine";
 
 class GuideManager {
     public static Instance = new GuideManager();
@@ -53,6 +55,10 @@ class GuideManager {
      * @return : 
      */
     public addUI(INUIName, INUINode) {
+        if(!GuideModuleConfig[INUIName] || GuideModuleConfig[INUIName]["open"] === 0) {
+            return;
+        }
+
         this.uiLists[INUIName] = INUINode;
         if(this._isSearchingUI) {
             this._startGuide();
@@ -127,11 +133,12 @@ class GuideManager {
         
         if(this._guideInfo["guide_type"] === 1) {
             // 弱引导
-            UIMgr.pushLayer("guide/LayerGuideDialog", null, null, this._guideInfo);
+            UIMgr.pushLayer("guide/LayerGuideDialog", LayerZOrder.GUIDE_UI, null, this._guideInfo);
+            
         }else if(this._guideInfo["guide_type"] === 2) {
             // 强引导
-            UIMgr.pushLayer("guide/LayerGuideButton", null, null, 
-                this._guideInfo, this.uiLists[this._guideInfo["layer"]]);
+            UIMgr.pushLayer("guide/LayerGuideButton", LayerZOrder.GUIDE_UI, null, 
+                    this._guideInfo, this.uiLists[this._guideInfo["layer"]]);
         }
     }
 

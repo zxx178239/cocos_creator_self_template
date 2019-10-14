@@ -3,6 +3,7 @@ import UIBase from "../components/UIBase";
 import { PATH_HEADS } from "../common/GameDefine";
 import { LayerZOrder } from "../common/LayerZOrderDefine";
 import { LogMgr, LOG_TAGS } from "./LogManager";
+import { GuideMgr } from "../guide/GuideManager";
 
 class UIManager {
     public static readonly Instance = new UIManager();
@@ -31,7 +32,7 @@ class UIManager {
             let splitArr = INPrefabFilePath.split("/");
             let scriptName = splitArr[splitArr.length - 1];
             let prefabScript = prefabNode.getComponent(scriptName);
-
+            GuideMgr.addUI(scriptName, prefabNode);
             prefabScript.initUI(INParams);
             INCallback && INCallback(prefabNode);
 
@@ -49,6 +50,8 @@ class UIManager {
             this._layerList.get(INPrefabFilePath).destroy();
             this.clearNoCommonDepend(INPrefabFilePath);
             this._layerList.delete(INPrefabFilePath);
+            let splitArr = INPrefabFilePath.split("/");
+            GuideMgr.removeUI(splitArr[splitArr.length - 1]);
         }
     }
 
