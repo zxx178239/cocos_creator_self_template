@@ -53,7 +53,7 @@ export default class UIBase extends cc.Component {
      * @param : 
      * @return : 
      */
-    public initUI(INParams) {
+    public initUI(INParams, ...otherParam) {
 
     }
 
