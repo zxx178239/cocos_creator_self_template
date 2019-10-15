@@ -78,4 +78,22 @@ export const GuideStepConfig = {
         "delay_time": 1000,
         "desc": "引导活动关闭"
     },
+    10: {
+        "layer": "guidescene",
+        "guide_type": 2,
+        "button_name": "ButtonLevel",
+        "button_shape": 1,
+        "next_step": 11,
+        "sync_step": -1,
+        "desc": "引导等级解锁"
+    },
+    11: {
+        "layer": "LayerLevel",
+        "guide_type": 2,
+        "button_name": "ButtonClose",
+        "button_shape": 1,
+        "next_step": -1,
+        "sync_step": -1,
+        "desc": "引导等级界面关闭"
+    },
 }

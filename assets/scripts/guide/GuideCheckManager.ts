@@ -1,3 +1,5 @@
+import { GuideConditions } from "./GuideConst";
+
 /*
  * @Author: xxZhang
  * @Date: 2019-10-14 15:18:44
@@ -6,6 +8,12 @@
 
 class GuideCheckManager {
     public static Instance = new GuideCheckManager();
+
+    public checkGuide(INGuideObject, ...INOtherParams) {
+        if(INGuideObject) {
+            INGuideObject.checkCondition(INOtherParams);
+        }
+    }
 }
 
 export const GuideCheckMgr = GuideCheckManager.Instance;
