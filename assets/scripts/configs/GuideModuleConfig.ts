@@ -17,7 +17,7 @@ export const GuideModuleConfig = {
         "open": 1,
     },
     "LayerGift": {
-        "first_step": 2,
+        "first_step": 7,
         "open": 1,
     }
 }

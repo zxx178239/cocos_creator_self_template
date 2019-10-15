@@ -47,4 +47,22 @@ export default class HHelpTools {
         let randY = Math.random() * 2160 - 1080;
         return cc.v2(randX, randY);
     }
+
+    /**
+     * @description: 本地存储
+     * @param : 
+     * @return : 
+     */
+    public static setLocalStorage(INKey, INItem) {
+        cc.sys.localStorage.setItem(INKey, INItem);
+    }
+
+    /**
+     * @description: 获取存储记录
+     * @param : 
+     * @return : 
+     */
+    public static getLocalStorage(INKey) {
+        return cc.sys.localStorage.getItem(INKey);
+    }
 }
