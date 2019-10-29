@@ -10,6 +10,7 @@ export const LOG_TAGS = {
     LOG_HALL: { level: 2 },
     LOG_POP_UI: { level: 3},
     LOG_BALL_GAME_UI: {level: 4},
+    LOG_NETWORK: {level: 2},
 }
 
 

@@ -43,10 +43,32 @@
       false,
       true,
       false
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false
     ]
   ],
-  "design-resolution-height": 750,
-  "design-resolution-width": 1334,
+  "design-resolution-height": 600,
+  "design-resolution-width": 800,
   "excluded-modules": [],
   "facebook": {
     "appID": "",
@@ -67,7 +89,9 @@
     "ball_game_bg",
     "ball_game_ui",
     "node_ball",
-    "node_food"
+    "node_food",
+    "qq_man",
+    "qq_hinder"
   ],
   "last-module-event-record-time": 1566364508388,
   "simulator-orientation": false,

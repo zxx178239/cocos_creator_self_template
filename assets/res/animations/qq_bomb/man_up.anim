@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "man_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.11666666666666667,
+  "sample": 60,
+  "speed": 0.15,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "93af8b4e-a7b4-4333-be26-74d984d9ec12"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "4afa11c3-0754-4227-8343-fae46770e4d0"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "84747501-08d8-4680-82be-ea4e31b07eb7"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "af5406c0-6bd7-4c89-a9ac-60cd1267198d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

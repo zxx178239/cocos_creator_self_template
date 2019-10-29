@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "man_left",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.11666666666666667,
+  "sample": 60,
+  "speed": 0.15,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "71bfde4e-0974-44ea-81d7-93749a6292fe"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "3a5c0035-1912-478a-965d-82186600819e"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "4d8f5e77-20d9-4148-8c22-f98f119b6224"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "e1156e83-d027-452d-8f5f-94f48b15ca0e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

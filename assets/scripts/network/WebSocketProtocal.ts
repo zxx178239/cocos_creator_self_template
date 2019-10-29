@@ -1,55 +1,56 @@
+/*
+ * @Author: xxZhang
+ * @Date: 2019-05-07 07:26:50
+ * @Description: websocket协议
+ */
 import {NOTIFY_EVENTS} from "../common/EventNotifyDefine";
+import { LogMgr, LOG_TAGS } from "../manager/LogManager";
 
 export class WebSocketProtocal {
-
-    private _ip: string                 = "";           // 连接ip
-    private _port: number               = -1;           // 连接端口
     private _socket: any                = null;         // socket对象
 
-    public connect(INIp: string, INPort: number, INSuccessCallback: Function, INFailCallback: Function) {
-        this._ip        = INIp;
-        this._port      = INPort;
+    onOpen: (event) => void = null;
+    onMessage: (event) => void = null;
+    onError: (event) => void = null;
+    onClose: (event) => void = null;
 
+    public connect(INOptinal?: any) {
+        if(this._socket) {
+            if(this._socket.readyState === WebSocket.CONNECTING) {
+                LogMgr.warn(LOG_TAGS.LOG_NETWORK, "websocket connecting, please wait for a moment");
+                return false;
+            }
+        }
+
+        let url = null;
         let webSocketHead = "ws://";
-
         if(gameDefine.SERVER_MODE === 1) {
             webSocketHead = "wss://";
         }
-
-        let ws = new WebSocket(webSocketHead + this._ip + ":" + this._port + "/wss");
-        ws.binaryType = "arraybuffer";
-
-        ws.onopen = function(event) {
-            app.logMgr.log("open websocket success");
-            if(INSuccessCallback) {
-                INSuccessCallback();
-            }
-        };
-
-        ws.onmessage = function(event) {
-            app.eventMgr.dispatchEvent(NOTIFY_EVENTS.NETWORK_MSG_NOTIFY, event.data);
-        };
-
-        ws.onerror = function(event) {
-            app.logMgr.error("error websocket: ");
-            if(INFailCallback) {
-                INFailCallback();
-            }
-        };
-
-        ws.onclose = function(event) {
-            app.logMgr.error("on close websocket");
-            if(INFailCallback) {
-                INFailCallback();
-            }
+        if(INOptinal.url) {
+            url = INOptinal.url;
+        }else {
+            url = `${INOptinal.ip}:${INOptinal.port}`;
         }
-
-        this._socket = ws;
+        this._socket = new WebSocket(webSocketHead + url);
+        this._socket.binaryType = "arraybuffer";
+        this._socket.onopen = this.onOpen;
+        this._socket.onmessage = this.onMessage;
+        this._socket.onerror = this.onError;
+        this._socket.onclose = this.onClose;
+        return true;
     }
 
-    public sendMsg(INParam) {
+    public send(INParam) {
         if(this._socket) {
             this._socket.send(INParam);
+        }
+    }
+
+    public close() {
+        if(this._socket) {
+            this._socket.close();
+            this._socket = null;
         }
     }
 }
