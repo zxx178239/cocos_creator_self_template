@@ -1,3 +1,6 @@
+import { EventMgr } from "../manager/EventManager";
+import { NOTIFY_EVENTS } from "../common/EventNotifyDefine";
+
 /*
  * @Author: xxZhang
  * @Date: 2019-10-28 19:57:01
@@ -58,13 +61,11 @@ export default class NodeQQMan extends cc.Component {
     }
  
     onCollisionEnter() {
-        console.log("hahhaaaaa");
         this._isCollider = true;
         // this._status = MAN_STATUS.COLLIDER;
     }
 
     onCollisionExit() {
-        console.log("exit");
         this._isCollider = false;
     }
 
@@ -165,13 +166,17 @@ export default class NodeQQMan extends cc.Component {
                 this._moveDirection &= (~MOVE_DIRECTION.DOWN);
                 this._status = MAN_STATUS.STOP;
                 break;
+
+            case cc.macro.KEY.space:
+                // this.createBomb();
+                EventMgr.dispatchEvent(NOTIFY_EVENTS.CREATE_BOMB, this.node.position);
+                break;
         }
     }
 
     lateUpdate() {
         if(this._status === MAN_STATUS.RUN && this._isCollider) {
             var p1 = this.lastPosition;
-            
             if (this._moveDirection & MOVE_DIRECTION.LEFT) {
                 p1.x += this._moveStep;
             } else if (this._moveDirection & MOVE_DIRECTION.RIGHT) {
@@ -190,7 +195,6 @@ export default class NodeQQMan extends cc.Component {
         if(this._status === MAN_STATUS.COLLIDER) {
             return;
         }else if(this._status === MAN_STATUS.RUN) {
-            console.log("move");
             this.moveMan();
         }
     }
@@ -198,26 +202,16 @@ export default class NodeQQMan extends cc.Component {
     moveMan() {
         let newX = this.node.x;
         let newY = this.node.y;
-        // let curTilePos = this.calTilePos(this.node.x, this.node.y);
-        // let tileGid = 0;
        
         if (this._moveDirection & MOVE_DIRECTION.LEFT) {
             newX = newX - this._moveStep;
-            // tileGid = this.isHasHinder(curTilePos.x - 1, curTilePos.y);
         } else if (this._moveDirection & MOVE_DIRECTION.RIGHT) {
             newX = newX + this._moveStep;
-            // tileGid = this.isHasHinder(curTilePos.x + 1, curTilePos.y);
         } else if (this._moveDirection & MOVE_DIRECTION.UP) {
             newY = newY + this._moveStep;
-            // tileGid = this.isHasHinder(curTilePos.x, curTilePos.y - 1);
         } else if (this._moveDirection & MOVE_DIRECTION.DOWN) {
             newY = newY - this._moveStep;
-            // tileGid = this.isHasHinder(curTilePos.x, curTilePos.y + 1);
         }
-        
-        // if(tileGid) {
-        //     return;
-        // }
 
         newX = cc.misc.clampf(newX, 20, this.node.parent.width - 20);
         newY = cc.misc.clampf(newY, 44, this.node.parent.height - 44);
