@@ -17,6 +17,7 @@ export default class LayerHinder extends cc.Component {
 
     start () {
         this.addCollider();
+        
     }
 
     addCollider() {
@@ -30,6 +31,7 @@ export default class LayerHinder extends cc.Component {
                     newCollider.offset.set(cc.v2(curPos.x + 20, curPos.y + 22));
                     newCollider.size.width = 40;
                     newCollider.size.height = 44;
+                    console.log("i, j, curTile: ", i, j, curTile);
                 }
             }
         }
