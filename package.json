@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/zxx178239/cocos_creator_self_template#readme",
   "dependencies": {
-    "async": "^3.1.0"
+    "async": "^3.2.2"
   }
 }
